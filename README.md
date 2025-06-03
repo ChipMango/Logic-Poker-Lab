@@ -1,2 +1,1 @@
-# Logic-Poker-Lab
-Lab for digital logic design with instructional content
+"# ChipMango Logic Poker Lab" 
