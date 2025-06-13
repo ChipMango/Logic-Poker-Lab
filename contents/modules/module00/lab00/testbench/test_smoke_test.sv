@@ -4,11 +4,11 @@
  // Author: <Student Name>
 // Date: <Date>
 // Version: 1.0
-// Project: ChipMango Lab 01 - Digitally Representing Poker Cards
+// Project: ChipMango Lab 00 - Digitally Representing Poker Cards
 // License: ChipMango Confidential - For educational purposes only
 //------------------------------------------------------------------------------
 // Revision History:
-//   v1.0 - 06/06/25: Initial file created with module template
+//   v1.0 - 13/06/25: Initial file created with module template
 //------------------------------------------------------------------------------
 
 
@@ -21,6 +21,17 @@ module test_smoke_test;
   logic cr_cmdvld;
   logic [2:0] cr_cmd;
   logic cr_ack;
+
+ // Conditional logic based on the define flag
+  `ifdef PLAYER
+    initial begin
+      $display("Running simulation for player: %s", `"PLAYER`");  // Display the player type
+    end
+  `else
+    initial begin
+      $display("Running simulation for default player");
+    end
+  `endif
 
   // Instantiate the top-level module (poker_player)
   poker_player uut (

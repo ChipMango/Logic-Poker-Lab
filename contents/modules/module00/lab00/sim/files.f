@@ -20,5 +20,6 @@ testbench/test_smoke_test.sv  # Basic smoke testbench for initial simulation
 
 # Add other files that are included for the initial simulation setup
 
-+define+SMOKE_TEST
--access +rwc  # Read, Write, and Check access for all signals
+//+define+SMOKE_TEST
+//+define+PLAYER=student   # Define the player type for the simulation
+//-access +rwc  # Read, Write, and Check access for all signals
