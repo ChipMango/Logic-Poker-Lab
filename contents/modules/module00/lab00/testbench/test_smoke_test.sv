@@ -28,11 +28,12 @@ module test_smoke_test;
  // Conditional logic based on the define flag
   `ifdef PLAYER
     initial begin
-      player_type = `"PLAYER"`;  // `PLAYER` will be replaced with 'student' from the +define macro
+      player_type = "student";  // Set to 'student' if PLAYER is defined
       $display("Running simulation for player: %s", player_type);   
     end
   `else
     initial begin
+      player_type = "default";
       $display("Running simulation for default player");
     end
   `endif
