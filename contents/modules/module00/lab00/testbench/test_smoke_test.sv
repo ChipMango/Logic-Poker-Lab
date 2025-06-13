@@ -22,10 +22,14 @@ module test_smoke_test;
   logic [2:0] cr_cmd;
   logic cr_ack;
 
+  // Define a string variable for the player type
+  string player_type;
+
  // Conditional logic based on the define flag
   `ifdef PLAYER
     initial begin
-      $display("Running simulation for player: %s", `"PLAYER`");  // Display the player type
+      player_type = `"PLAYER"`;  // `PLAYER` will be replaced with 'student' from the +define macro
+      $display("Running simulation for player: %s", player_type);   
     end
   `else
     initial begin
