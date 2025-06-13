@@ -27,7 +27,7 @@ module poker_player (
 //      cr_cmdvld <= 0;
 //    else
 //      cr_cmdvld <= 1;  // Set to 1 for the smoke test
-  end
+ // end
 
 endmodule
 
