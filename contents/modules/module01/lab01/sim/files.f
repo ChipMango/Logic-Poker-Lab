@@ -15,5 +15,5 @@
 src/hand_memory.sv          # Source file for Hand Memory
 testbench/test_hand_memory.sv  # Testbench for Hand Memory
 
-+define+TEST_HAND_MEMORY
--access +rwc  # Read, Write, and Check access for all signals
+//+define+TEST_HAND_MEMORY
+//-access +rwc  # Read, Write, and Check access for all signals
