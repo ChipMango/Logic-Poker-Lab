@@ -15,74 +15,46 @@
 
 module test_hand_memory;
 
-  logic        clk;
-  logic        rst_n;
-  logic        we;
-  logic [2:0]  waddr;
-  logic [5:0]  card_in;
-  logic        hand_full;
+  // Declare testbench signals
+  logic clk;
+  logic rst_n;
+  logic we;
+  logic [2:0] waddr;
+  logic [5:0] card_in;
+  logic hand_full;
+  logic [5:0] hand [4:0];
 
   // Instantiate the DUT
   hand_memory dut (
-    .clk       (clk),
-    .rst_n     (rst_n),
-    .we        (we),
-    .waddr     (waddr),
-    .card_in   (card_in),
-    .hand_full (hand_full)
+    .clk(clk),
+    .rst_n(rst_n),
+    .we(we),
+    .waddr(waddr),
+    .card_in(card_in),
+    .hand_full(hand_full),
+    .hand(hand)
   );
 
-  // Generate a 10ns clock
-  always #5 clk = ~clk;
+  // TODO: Clock Generation
+  // Tip: Use an `always` block to toggle clk every 5ns
 
-  initial begin
-    $display("\n--- Running Module 1: test_hand_memory ---");
+  // TODO: Waveform Dump
+  // Tip: Use $shm_open and $shm_probe for SimVision viewing
 
-    // Initialize signals
-    clk      = 0;
-    rst_n    = 0;
-    we       = 0;
-    waddr    = 3'b000;
-    card_in  = 6'b000000;
+  // TODO: Reset Sequence
+  //  - Set rst_n low for a few cycles
+  //  - Set rst_n high and begin testing
 
-    // Apply reset
-    #10;
-    rst_n = 1;
-    #10;
+  // TODO: Stimulus Block
+  //  - Write 5 encoded cards using we, waddr, and card_in
+  //  - Use @(negedge clk) to time the writes
+  //  - Wait for hand_full to go high
 
-    // Write 5 cards into memory
-    for (int i = 0; i < 5; i++) begin
-      we      = 1;
-      waddr   = i[2:0];
-      card_in = i + 6; // Arbitrary card values
-      #10;
-    end
+  // TODO: Output Verification
+  //  - Use $display to print each card from hand[]
+  //  - Confirm the hand is sorted (optional)
 
-    we = 0; // Stop writing
-    #10;
-
-    // Check if hand_full is asserted
-    if (hand_full) begin
-      $display("✅ PASS: hand_full correctly asserted after 5 cards.");
-    end else begin
-      $display("❌ FAIL: hand_full was not asserted.");
-    end
-
-    // Optional: Check reset behavior
-    rst_n = 0;
-    #10;
-    rst_n = 1;
-    #10;
-
-    if (!hand_full) begin
-      $display("✅ PASS: hand_full cleared after reset.");
-    end else begin
-      $display("❌ FAIL: hand_full not cleared after reset.");
-    end
-
-    $display("--- End of test_hand_memory ---\n");
-    $finish;
-  end
+  // TODO: End Simulation
+  //  - Wait a few cycles then call $finish
 
 endmodule
-
