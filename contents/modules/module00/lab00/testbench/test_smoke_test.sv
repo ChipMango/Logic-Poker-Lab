@@ -22,6 +22,12 @@ module test_smoke_test;
   logic [2:0] cr_cmd;
   logic cr_ack;
 
+  // Waveform dump
+  initial begin
+    $shm_open("waves.shm");
+    $shm_probe("ACMT");
+  end
+
   // Define a string variable for the player type
   string player_type;
 
