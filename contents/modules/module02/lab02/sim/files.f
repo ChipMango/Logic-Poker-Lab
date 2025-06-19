@@ -17,5 +17,5 @@
 src/hand_rank_evaluator.sv  # Source file for Hand Ranking Evaluator
 testbench/test_hand_rank_evaluator.sv  # Testbench for Hand Ranking Evaluator
 
-+define+TEST_HAND_RANK_EVALUATOR
--access +rwc
+//+define+TEST_HAND_RANK_EVALUATOR
+//-access +rwc
