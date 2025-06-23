@@ -16,8 +16,8 @@
 src/player_fsm.sv           # FSM for controlling game flow
 testbench/test_game_fsm.sv   # Testbench for FSM and Game Flow
 
-+define+TEST_GAME_FSM
--access +rwc
+//+define+TEST_GAME_FSM
+//-access +rwc
 
 
 

@@ -16,5 +16,5 @@
 src/poker_player.sv         # Top-level module that integrates all components
 testbench/test_full_player.sv  # Testbench for the full player simulation
 
-+define+TEST_FULL_PLAYER
--access +rwc
+//+define+TEST_FULL_PLAYER
+//-access +rwc

@@ -16,7 +16,7 @@
 src/personality_logic.sv    # Personality Logic module
 testbench/test_personality_logic.sv  # Testbench for Personality Logic
 
-+define+TEST_PERSONALITY_LOGIC
--access +rwc
+//+define+TEST_PERSONALITY_LOGIC
+//-access +rwc
 
 

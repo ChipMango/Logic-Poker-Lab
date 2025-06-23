@@ -18,6 +18,6 @@ src/personality_logic.sv    # Personality Logic module
 src/player_interface.sv     # Player Interface that integrates all components
 testbench/test_player_interface.sv  # Testbench for Player Interface
 
-+define+TEST_PLAYER_INTERFACE
--access +rwc
+//+define+TEST_PLAYER_INTERFACE
+//-access +rwc
 
