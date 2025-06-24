@@ -14,8 +14,11 @@
 
 # files.f for Module 2: Hand Ranking Engine
 
-src/hand_rank_evaluator.sv  # Source file for Hand Ranking Evaluator
-testbench/test_hand_rank_evaluator.sv  # Testbench for Hand Ranking Evaluator
+../src/hand_rank_evaluator.sv  # Source file for Hand Ranking Evaluator
+../src/rank_encoding.sv
+../testbench/test_hand_rank_evaluator.sv  # Testbench for Hand Ranking Evaluator
+../testbench/rank_encoding_tb.sv
 
 //+define+TEST_HAND_RANK_EVALUATOR
+//+define+TEST_RANK_ENCODING_TB
 //-access +rwc
