@@ -11,21 +11,40 @@
 //   v1.0 - 06/06/25: Initial file created with module template
 //------------------------------------------------------------------------------
 
-
 module hand_memory (
   input  logic        clk,           // Clock input
   input  logic        rst_n,         // Active low reset
   input  logic        we,            // Write Enable
-  input  logic [2:0]  waddr,         // Write address (0 to 4)
-  input  logic [5:0]  card_in,       // 6-bit encoded card input
-  output logic        hand_full,     // Set high when 5 cards stored
-  output logic [5:0]  hand [4:0]     // Output hand array
+  input  logic [2:0]  waddr,         // Write address (valid range: 0-4 for 5 cards)
+  input  logic [5:0]  card_in,       // 6-bit  encoded card input
+  output logic        hand_full,     // Flag when all 5 cards are stored
+  output logic [5:0]  hand [4:0]     // Array to store the 5-card hand
 );
 
-  // TODO: Declare internal 3-bit counter to track written cards
-  // TODO: Write card_in into hand[waddr] on write enable
-  // TODO: Assert hand_full when counter reaches 5
-  // Optional TODO: Reset mem ory and counter when rst_n is low
-  // Optional TODO: Add sorting logic (bubble sort) after hand is full
+  // Internal counter to track the number of cards written
+  logic [2:0] card_counter;
+
+  // Register file to store the 5 cards (5 entries, each 6 bits wide)
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      // Reset all memory slots
+      hand[0] <= 6'b0;
+      hand[1] <= 6'b0;
+      hand[2] <= 6'b0;
+      hand[3] <= 6'b0;
+      hand[4] <= 6'b0;
+      card_counter <= 3'b0;
+    end else if (we) begin
+      // Write the card to the selected memory slot
+      hand[waddr] <= card_in;
+      card_counter <= card_counter + 1;
+    end
+  end
+
+  // Set the hand_full flag when all 5 slots are filled
+  assign hand_full = (card_counter == 3'd5);
+
+endmodule
+
 
 endmodule
