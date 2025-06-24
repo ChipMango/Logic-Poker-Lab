@@ -12,8 +12,11 @@
 //------------------------------------------------------------------------------
 
 # files.f for Module 1: Hand Memory
-src/hand_memory.sv          # Source file for Hand Memory
-testbench/test_hand_memory.sv  # Testbench for Hand Memory
+../src/hand_memory.sv          # Source file for Hand Memory
+../src/bubble_sort.sv
+../testbench/test_hand_memory.sv  # Testbench for Hand Memory
+../testbench/bubble_sort_tb.sv
 
 //+define+TEST_HAND_MEMORY
+//+define+BUBBLE_SORT_TB
 //-access +rwc  # Read, Write, and Check access for all signals

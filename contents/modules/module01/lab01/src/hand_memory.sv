@@ -45,6 +45,3 @@ module hand_memory (
   assign hand_full = (card_counter == 3'd5);
 
 endmodule
-
-
-endmodule
