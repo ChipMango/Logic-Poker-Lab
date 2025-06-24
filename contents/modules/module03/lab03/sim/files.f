@@ -19,7 +19,7 @@
 ../testbench/test_player_interface.sv  # Testbench for Player Interface
 ../testbench/multiplexing_logic_tb.sv
 ../testbench/command_generator_tb.sv 
-../../module02/lab02/src/hand_rank_evaluator.sv
+../../../module02/lab02/src/hand_rank_evaluator.sv
 
 //+define+TEST_PLAYER_INTERFACE
 //-access +rwc
