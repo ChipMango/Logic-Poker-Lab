@@ -12,15 +12,30 @@
 //------------------------------------------------------------------------------
 
 
-module test_smoke_test;
+module test_poker_player;
 
-  // Declare the signals
+  // Declare interface signals
   logic clk;
   logic rst_n;
-  logic tbl_game_start;
   logic cr_cmdvld;
   logic [2:0] cr_cmd;
   logic cr_ack;
+  logic [2:0] act_action;
+  logic act_ready;
+
+  // Instantiate the DUT (Device Under Test)
+  poker_player dut (
+    .clk(clk),
+    .rst_n(rst_n),
+    .cr_cmdvld(cr_cmdvld),
+    .cr_cmd(cr_cmd),
+    .cr_ack(cr_ack),
+    .act_action(act_action),
+    .act_ready(act_ready)
+  );
+
+  // Clock generation (100 MHz -> 10 ns period)
+  always #5 clk = ~clk;
 
   // Waveform dump
   initial begin
@@ -28,54 +43,34 @@ module test_smoke_test;
     $shm_probe("ACMT");
   end
 
-  // Define a string variable for the player type
-  string player_type;
-
- // Conditional logic based on the define flag
-  `ifdef PLAYER
-    initial begin
-      player_type = "student";  // Set to 'student' if PLAYER is defined
-      $display("Running simulation for player: %s", player_type);   
-    end
-  `else
-    initial begin
-      player_type = "default";
-      $display("Running simulation for default player");
-    end
-  `endif
-
-  // Instantiate the top-level module (poker_player)
-  poker_player uut (
-    .clk(clk),
-    .rst_n(rst_n),
-    .tbl_game_start(tbl_game_start),
-    .cr_cmdvld(cr_cmdvld),
-    .cr_cmd(cr_cmd),
-    .cr_ack(cr_ack)
-  );
-
-  // Generate clock signal (period of 10ns, 100MHz)
-  always #5 clk = ~clk;
-
+  // Simulation sequence
   initial begin
+    $display("[TEST] Module 0 - Poker Player Placeholder Logic\n");
+
     // Initialize signals
     clk = 0;
     rst_n = 0;
-    tbl_game_start = 0;
-    cr_ack = 0;
+    cr_cmdvld = 0;
+    cr_cmd = 3'b000;
 
     // Apply reset
     #10 rst_n = 1;
-    
-    // Start the game after reset
-    #10 tbl_game_start = 1;
-    
-    // Check outputs
-    #10;
-    $display("cr_cmdvld: %b, cr_cmd: %b", cr_cmdvld, cr_cmd);
-    
-    // End simulation
-    #100 $finish;
+    $display("[INFO] Reset deasserted\n");
+
+    // Simulate Dealer command 1
+    #10 cr_cmdvld = 1; cr_cmd = 3'b001;
+    #10 cr_cmdvld = 0;
+    $display("[INFO] Dealer sent command 001\n");
+    $display("[STATE] act_action = %b, act_ready = %b, cr_ack = %b", act_action, act_ready, cr_ack);
+
+    // Simulate Dealer command 3
+    #10 cr_cmdvld = 1; cr_cmd = 3'b011;
+    #10 cr_cmdvld = 0;
+    $display("[INFO] Dealer sent command 011\n");
+    $display("[STATE] act_action = %b, act_ready = %b, cr_ack = %b", act_action, act_ready, cr_ack);
+
+    #50 $display("[TEST] Placeholder interaction complete.\n");
+    $finish;
   end
 
 endmodule

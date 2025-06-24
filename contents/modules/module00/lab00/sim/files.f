@@ -15,11 +15,11 @@
 # files.f for Module 0: Getting Started with Poker Logic Design
 # Verilog/SystemVerilog files for the initial setup and basic test
 
-src/poker_player.sv       # Top-level module for the poker player (even though it's not fully functional yet)
-testbench/test_smoke_test.sv  # Basic smoke testbench for initial simulation
+../src/poker_player.sv       # Top-level module for the poker player (even though it's not fully functional yet)
+../testbench/test_smoke_test.sv  # Basic smoke testbench for initial simulation
 
 # Add other files that are included for the initial simulation setup
 
 //+define+SMOKE_TEST
-//+define+PLAYER=student   # Define the player type for the simulation
+// +define+PLAYER=student   # Define the player type for the simulation
 //-access +rwc  # Read, Write, and Check access for all signals

@@ -13,27 +13,28 @@
 
 
 module poker_player (
-  input  logic        clk,           // Clock input
-  input  logic        rst_n,         // Reset input
-  input  logic        tbl_game_start, // Signal to start the game
-  output logic        cr_cmdvld,     // Command valid signal
-  output logic [2:0]  cr_cmd,        // Command signal
-  input  logic        cr_ack         // Acknowledge signal from the dealer
+  input  logic        clk,
+  input  logic        rst_n,
+  input  logic        cr_cmdvld,  // Dealer command valid
+  input  logic [2:0]  cr_cmd,     // Dealer command
+  output logic        cr_ack,     // Acknowledge command
+  output logic [2:0]  act_action, // Action to take
+  output logic        act_ready   // Action ready signal
 );
 
-  // Placeholder logic for Module 0 to test environment setup
- // always_ff @(posedge clk or negedge rst_n) begin
- //   if (!rst_n)
-//      cr_cmdvld <= 0;
-//    else
-//      cr_cmdvld <= 1;  // Set to 1 for the smoke test
- // end
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      cr_ack     <= 0;
+      act_action <= 3'b000;
+      act_ready  <= 0;
+    end else begin
+      cr_ack     <= cr_cmdvld;       // Simply acknowledge any command
+      act_ready  <= cr_cmdvld;       // Indicate ready when dealer asks
+      act_action <= cr_cmd;          // Echo the dealer’s command
+    end
+  end
 
 endmodule
-
-
-
-
 
 
 
