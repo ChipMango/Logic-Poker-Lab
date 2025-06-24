@@ -13,10 +13,10 @@
 
 # files.f for Module 4: Control FSM and Game Flow
 
-src/player_fsm_controller.sv           # FSM for controlling game flow
-src/game_fsm_controller.sv
-testbench/test_game_fsm.sv   # Testbench for FSM and Game Flow
-testbench/timeout_counter_tb.sv
+../src/player_fsm_controller.sv           # FSM for controlling game flow
+../src/game_fsm_controller.sv
+../testbench/test_game_fsm.sv   # Testbench for FSM and Game Flow
+../testbench/timeout_counter_tb.sv
 
 //+define+TEST_GAME_FSM
 //+define+TIMEOUT_COUNTER_TB
