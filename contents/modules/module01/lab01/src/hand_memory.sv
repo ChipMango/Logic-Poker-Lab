@@ -26,9 +26,7 @@ module hand_memory (
 
   // Register file to store the 5 cards (5 entries, each 6 bits wide)
   always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-      // Reset all memory slots
-      hand[0] <= 6'b0;
+    if (!rst_n) beg      // Reset all memory slot     hand[0] <= 6'b0;
       hand[1] <= 6'b0;
       hand[2] <= 6'b0;
       hand[3] <= 6'b0;
@@ -38,6 +36,7 @@ module hand_memory (
       // Write the card to the selected memory slot
       hand[waddr] <= card_in;
       card_counter <= card_counter + 1;
+      $display("Memory Write: Addr=%0d, Card=0x%02h", waddr, card_in);
     end
   end
 
