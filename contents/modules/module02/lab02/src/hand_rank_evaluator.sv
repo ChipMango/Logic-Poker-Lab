@@ -1,21 +1,20 @@
-
-//------------------------------------------------------------------------------
-// File Name:hand_rank_evaluator.sv
-// Description:  implements the hand ranking evaluator logic.
+// File Name: bubble_sort_tb.sv
 // Author: <Student Name>
 // Date: <Date>
 // Version: 1.0
-// Project: ChipMango Lab 01 - Digitally Representing Poker Cards
+// Project: ChipMango Lab 02 - Digitally Representing Poker Cards
 // License: ChipMango Confidential - For educational purposes only
 //------------------------------------------------------------------------------
 // Revision History:
 //   v1.0 - 06/06/25: Initial file created with module template
-//------------------------------------------------------------------------------
-
+//------------------------------------------------------------------------------ 
 
 module hand_rank_evaluator (
-  input  logic [5:0] hand [4:0],     // 5 encoded cards (6-bit each)
-  output logic [8:0] hand_rank_out   // One-hot rank result
+  input  logic        clk,
+  input  logic        rst_n,
+  input  logic [5:0]  hand [4:0],     // 5 encoded cards (6-bit each)
+  output logic [8:0]  hand_rank_out,  // One-hot rank result
+  output logic        rank_done       // Rank evaluation done flag
 );
 
   // Internal signals
@@ -24,12 +23,14 @@ module hand_rank_evaluator (
   logic [2:0] rank, max_same_rank;
   logic [1:0] suit;
   logic is_flush, is_straight, is_four, is_full, is_three, is_two_pair, is_one_pair;
-  int pairs;  // Declare here instead of inside always_comb
+  int pairs;  
 
-  // Combinational logic
+  logic [8:0] hand_rank_comb;
+
   always_comb begin
-    pairs = 0; // initialize inside the block			
+    pairs = 0; // reset pair count
 
+    // Clear counters
     foreach (rank_count[i]) rank_count[i] = 0;
     foreach (suit_count[i]) suit_count[i] = 0;
 
@@ -73,17 +74,34 @@ module hand_rank_evaluator (
     is_two_pair = (pairs == 2);
     is_one_pair = (pairs == 1);
 
-    // Set hand_rank_out
-    hand_rank_out = 9'b000000001; // Default to High Card
+    // Default: High Card
+    hand_rank_comb = 9'b000000001;
 
-    if (is_flush && is_straight) hand_rank_out = 9'b100000000;
-    else if (is_four)            hand_rank_out = 9'b010000000;
-    else if (is_full)            hand_rank_out = 9'b001000000;
-    else if (is_flush)           hand_rank_out = 9'b000100000;
-    else if (is_straight)        hand_rank_out = 9'b000010000;
-    else if (is_three)           hand_rank_out = 9'b000001000;
-    else if (is_two_pair)        hand_rank_out = 9'b000000100;
-    else if (is_one_pair)        hand_rank_out = 9'b000000010;
+    if (is_flush && is_straight) hand_rank_comb = 9'b100000000;
+    else if (is_four)            hand_rank_comb = 9'b010000000;
+    else if (is_full)            hand_rank_comb = 9'b001000000;
+    else if (is_flush)           hand_rank_comb = 9'b000100000;
+    else if (is_straight)        hand_rank_comb = 9'b000010000;
+    else if (is_three)           hand_rank_comb = 9'b000001000;
+    else if (is_two_pair)        hand_rank_comb = 9'b000000100;
+    else if (is_one_pair)        hand_rank_comb = 9'b000000010;
+  end
+
+  // Sync output and rank_done flag
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      hand_rank_out <= 9'd0;
+      rank_done <= 1'b0;
+    end else begin
+      hand_rank_out <= hand_rank_comb;
+      rank_done <= 1'b1;  // Always ready next cycle
+    end
+  end
+
+  // Debug print
+  always_ff @(posedge clk) begin
+    $display("Hand Rank Evaluator: hand=%p, hand_rank_out=%0b", hand, hand_rank_out);
   end
 
 endmodule
+
