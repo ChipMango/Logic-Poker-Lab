@@ -1,4 +1,3 @@
-
 //------------------------------------------------------------------------------
 // File Name: command_generator.sv
 // Description:   module that implements the handshke and command generation.
@@ -60,7 +59,13 @@ module command_generator (
           next_state = IDLE;
       end
     endcase
-  end
+   end
+
+always_ff @(posedge clk) begin
+  $display("Cmd Gen: cmd_trigger=%b action_code=%b cr_cmdvld=%b cr_cmd=%b",
+           trigger, action_code, cr_cmdvld, cr_cmd);
+end
+    
 
   // Latch command on trigger
   always_ff @(posedge clk or negedge rst_n) begin
@@ -89,10 +94,4 @@ module command_generator (
   end
 
 endmodule
-
-
-
-
-
-
 
