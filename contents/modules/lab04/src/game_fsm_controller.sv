@@ -1,16 +1,3 @@
-//------------------------------------------------------------------------------
-// File Name: game_fsm_controller.sv
-// Description: module that implements the handshke and command generation.
-// Author: <Student Name>
-// Date: <Date>
-// Version: 1.0
-// Project: ChipMango Lab 04 - Digitally Representing Poker Cards
-// License: ChipMango Confidential - For educational purposes only
-//------------------------------------------------------------------------------
-// Revision History:
-//   v1.0 - 07/06/25: Initial file created with module template
-//------------------------------------------------------------------------------
-
 module game_fsm_controller (
   input  logic        clk,
   input  logic        rst_n,
@@ -49,7 +36,6 @@ module game_fsm_controller (
   logic cmd_trigger_reg;
   logic [5:0] stored_card_reg;
 
- `ifndef SYNTHESIS
   // String for readable state debug output
   string state_str;
 
@@ -67,7 +53,6 @@ module game_fsm_controller (
       default:        state_str = "UNKNOWN";
     endcase
   end
- `endif
 
   // State register and outputs
   always_ff @(posedge clk or negedge rst_n) begin
@@ -86,10 +71,8 @@ module game_fsm_controller (
       rank_enable_reg <= 1'b0;
       cmd_trigger_reg <= 1'b0;
 
-      `ifndef SYNTHESIS
-        $display("Time=%0t FSM State=%s CardCount=%0d mem_we=%b rank_enable=%b cmd_trigger=%b stored_card=0x%02h",
+       $display("Time=%0t FSM State=%s CardCount=%0d mem_we=%b rank_enable=%b cmd_trigger=%b stored_card=0x%02h",
            $time, state_str, card_counter, mem_we_reg, rank_enable_reg, cmd_trigger_reg, stored_card_reg);
-	`endif
 
 
       case (current_state)

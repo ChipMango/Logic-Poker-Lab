@@ -123,9 +123,10 @@ always_ff @(posedge clk or negedge rst_n) begin
     card_index <= 0;
   else if (tbl_game_start)
     card_index <= 0;
-  else if (mem_we)
+  else if (mem_we) begin
     card_index <= (card_index == 3'd4) ? 3'd4 : card_index + 1;
     $display("Poker Player: mem_we=%b, stored_card=0x%02h", mem_we, stored_card);
+  end
 end
 
   // Monitor memory write and FSM related signals

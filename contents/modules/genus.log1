@@ -1,0 +1,40 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[11:48:53.244145] Configured Lic search path (21.01-s002): 50040@10.16.1.10
+
+Version: 21.17-s066_1, built Wed Mar 15 06:43:30 PDT 2023
+Options: 
+Date:    Fri Aug 01 11:48:53 2025
+Host:    ip-10-16-14-96.rdius.us (x86_64 w/Linux 4.18.0-513.24.1.el8_9.x86_64) (2cores*4cpus*1physical cpu*Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz 36608KB) (15936784KB)
+PID:     535377
+OS:      Red Hat Enterprise Linux release 8.9 (Ootpa)
+
+
+[11:48:53.459345] Periodic Lic check successful
+[11:48:53.459355] Feature usage summary:
+[11:48:53.459360] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (10 seconds elapsed).
+
+WARNING: This version of the tool is 870 days old.
+Error   : No designs are available. A design must first be read in and elaborated. [TUI-10] [check_design]
+        : There is no design here.
+        : A design must first be read in with 'read_hdl' command and elaborated with 'elaborate' command.
+
+Lic Summary:
+[11:49:34.045200] Cdslmd servers: chipmango-license
+[11:49:34.045219] Feature usage summary:
+[11:49:34.045219] Genus_Synthesis
+
+Normal exit.

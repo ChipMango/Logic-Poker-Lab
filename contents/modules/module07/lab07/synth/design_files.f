@@ -10,10 +10,10 @@
 // Revision History:
 //   v1.0 - 08/06/25: Initial file created with module template
 //------------------------------------------------------------------------------
+../../../module01/lab01/src/hand_memory.sv
+../../../module02/lab02/src/hand_rank_evaluator.sv
+../../../module03/lab03/src/command_generator.sv
+../../../module04/lab04/src/game_fsm_controller.sv
+../../../module05/lab05/src/personality_logic.sv
+../../../module06/lab06/src/poker_player.sv
 
-src/poker_player.sv
-src/hand_memory.sv
-src/hand_rank_evaluator.sv
-src/command_generator.sv
-src/personality_logic.sv
-src/player_fsm.sv
