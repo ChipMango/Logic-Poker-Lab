@@ -1,0 +1,10 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Aug 05, 2025 at 11:07:22 EDT
+xrun
+	-f sim/files.f
+		../src/poker_player.sv
+		../testbench/test_smoke_test.sv
+	-access +rwc
+xrun: *SE,FILEMIS: Cannot find the provided file ../src/poker_player.sv.
+xrun: *SE,FILEMIS: Cannot find the provided file ../testbench/test_smoke_test.sv.
+TOOL:	xrun(64)	24.03-s013: Exiting on Aug 05, 2025 at 11:07:23 EDT  (total: 00:00:01)

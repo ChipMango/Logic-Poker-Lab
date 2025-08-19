@@ -1,4 +1,3 @@
-
 //------------------------------------------------------------------------------
 // File Name: run_synth.tcl
 // Description:-
@@ -15,26 +14,61 @@
 # run_synth.tcl: TCL script to run Cadence Genus Synthesis
 
 # 1. Set up design libraries and directories
-set WORK_DIR "./"   # Working directory for the design
-set DESIGN_LIB "work"  # Library name
+set design_name poker_player
 
 # 2. Define the Verilog files for synthesis (top-level module for Module 0)
-read_verilog ./src/poker_player.sv
+read_hdl -sv ../src/poker_player.sv
 
-# 3. Apply constraints (optional for Module 0, no timing constraints here)
+# 3. Enable line tracking for datapath reports (must be before elaborate)
+set_db hdl_track_filename_row_col true
+
+# ----------------------------
+# 4. Read Standard Cell Library
+# ----------------------------
+read_libs /CMC/kits/cadence/GPDK045/gsclib045_all_v4.4/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib
+
+# ----------------------------
+# 5. Elaborate Design
+# ----------------------------
+elaborate $design_name
+
+
+# 6. Apply constraints (optional for Module 0, no timing constraints here)
 # No constraints for Module 0, but you can add timing constraints here if needed
+# ----------------------------
+# 6. Read Constraints -- optional
+# ----------------------------
+read_sdc ../synth/constraints.sdc
 
-# 4. Compile the design (this will elaborate and optimize the design)
-compile_ultra -top poker_player
+# ----------------------------
+# 7. Run Checks
+# ----------------------------
+check_design
 
-# 5. Run synthesis and generate reports
-report_area > ./reports/area.rpt 
-report_timing > ./reports/timing.rpt
+# ----------------------------
+# 8. Synthesis Phases
+# ----------------------------
+syn_gen
+syn_map
+syn_opt
 
 # 6. Save the synthesized netlist (optional)
-write_verilog -output ./reports/design_netlist.v
 
-# 7. Log synthesis messages
-log_messages -file ./reports/synthesis_log.txt
+# ----------------------------
+# Write Outputs
+# ----------------------------
+write_hdl > reports/design_netlist.sv
 
-puts "Synthesis process completed"
+# 5. Run synthesis and generate reports
+# ----------------------------
+# Reports
+# ----------------------------
+report_area  > reports/area.rpt
+report_timing > reports/timing.rpt
+report_power > reports/power.rpt
+
+# ----------------------------
+# Exit
+# ----------------------------
+exit
+

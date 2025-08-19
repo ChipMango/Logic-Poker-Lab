@@ -1,0 +1,2 @@
+#e1(05Aug2025:11:07:23): source ./xcelium.d/env.d/env.history.05Aug2025_11_07_23
+s1(05Aug2025:11:07:23):  xrun -f sim/files.f -access +rwc 

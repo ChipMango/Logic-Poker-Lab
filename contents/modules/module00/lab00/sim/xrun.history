@@ -1,0 +1,8 @@
+s1(07Aug2025:07:41:44):  xrun -64bit -sv -uvm -debug -timescale 1ns/1ps -f files.f 
+s2(07Aug2025:07:47:01):  xrun -64bit -sv -uvm -debug -timescale 1ns/1ps -log xrun.log -f files.f 
+#e3(18Aug2025:05:34:14): source ./xcelium.d/env.d/env.history.18Aug2025_05_34_14
+s3(18Aug2025:05:34:14):  xrun -f files.f +define+SMOKE_TEST +PLAYER=student -access +rwc 
+#e4(18Aug2025:06:21:41): source ./xcelium.d/env.d/env.history.18Aug2025_06_21_41
+s4(18Aug2025:06:21:41):  xrun -f files.f +define+SMOKE_TEST +PLAYER=student -access +rwc 
+#e5(18Aug2025:06:22:17): source ./xcelium.d/env.d/env.history.18Aug2025_06_22_17
+s5(18Aug2025:06:22:17):  xrun -f files.f -access +rwc 

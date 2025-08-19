@@ -1,0 +1,2 @@
+SOFTINCLUDE /CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools/inca/files/cds.lib
+define worklib ../worklib

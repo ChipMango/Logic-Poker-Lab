@@ -1,0 +1,44 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Aug 18, 2025 at 06:22:17 EDT
+xrun
+	-f files.f
+		../src/poker_player.sv
+		../testbench/test_smoke_test.sv
+	-access +rwc
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		test_poker_player
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           10      10
+		Scalar wires:         7       -
+		Vectored wires:       3       -
+		Always blocks:        2       2
+		Initial blocks:       2       2
+		Pseudo assignments:   7       -
+		Process Clocks:       1       1
+	Writing initial simulation snapshot: worklib.test_poker_player:sv
+Loading snapshot worklib.test_poker_player:sv .................... Done
+xcelium> source /CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools/xcelium/files/xmsimrc
+xcelium> run
+[TEST] Module 0 - Poker Player Placeholder Logic
+
+[INFO] Reset deasserted
+
+[INFO] Dealer sent command 001
+
+[STATE] act_action = 001, act_ready = 1, cr_ack = 1
+[INFO] Dealer sent command 011
+
+[STATE] act_action = 011, act_ready = 1, cr_ack = 1
+[TEST] Placeholder interaction complete.
+
+Simulation complete via $finish(1) at time 100 NS + 0
+../testbench/test_smoke_test.sv:73     $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.03-s013: Exiting on Aug 18, 2025 at 06:22:18 EDT  (total: 00:00:01)

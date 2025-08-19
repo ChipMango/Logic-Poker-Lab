@@ -1,0 +1,56 @@
+csi-xmsim - CSI: Command line:
+xmsim
+    -f /users/chipmango/chipmango-t14001/chipmango/projects/Logic-Poker-Lab/contents/modules/module00/lab00/sim/xcelium.d/run.lnx8664.23.03.d/ip-10-16-14-96.rdius.us_687110/xmsim.args
+        -INPUT @source /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+        -uvmhome /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d
+        -sv_lib /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+        -MESSAGES
+        -RUN
+        -SV_LIB /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
+        +EMGRLOG xrun.log
+        -XLSTIME 1754566904
+        -XLKEEP
+        -XLMODE ./xcelium.d/run.lnx8664.23.03.d
+        -RUNMODE
+        -CDSLIB ./xcelium.d/run.lnx8664.23.03.d/cds.lib
+        -HDLVAR ./xcelium.d/run.lnx8664.23.03.d/hdl.var
+        -XLNAME xrun
+        -XLVERSION TOOL:	xrun(64)	23.03-s004
+        -XLNAME ./xcelium.d/run.lnx8664.23.03.d/ip-10-16-14-96.rdius.us_687110
+    -CHECK_VERSION TOOL:	xrun(64)	23.03-s004
+    -LOG_FD 4
+    -LOG_FD_NAME xrun.log
+    -cmdnopsim
+    -runlock /users/chipmango/chipmango-t14001/chipmango/projects/Logic-Poker-Lab/contents/modules/module00/lab00/sim/xcelium.d/run.lnx8664.23.03.d/.xmlib.lock
+    -runscratch /users/chipmango/chipmango-t14001/chipmango/projects/Logic-Poker-Lab/contents/modules/module00/lab00/sim/xcelium.d/run.lnx8664.23.03.d/ip-10-16-14-96.rdius.us_687110
+
+csi-xmsim - CSI: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.03-s004
+  HOSTNAME: ip-10-16-14-96.rdius.us
+  OPERATING SYSTEM: Linux 4.18.0-513.24.1.el8_9.x86_64 #1 SMP Thu Mar 14 14:20:09 EDT 2024 x86_64
+  MESSAGE: T(0): sv_seghandler - trapno -1 addr(0x5c2970c)
+	Stream rts_xfer
+-----------------------------------------------------------------
+
+csi-xmsim - CSI: Cadence Support Investigation, recording details
+External Code in function: <unavailable> offset -65512
+External Code in function: <unavailable> offset -65073
+External Code in function: <unavailable> offset -65536
+Simulator Snap Shot: root (SSS_ROOT) in snapshot worklib.test_poker_player:sv (SSS)
+Intermediate File: root (IF_ROOT) in snapshot worklib.test_poker_player:sv (SSS)
+Intermediate File: root (IF_ROOT)
+External Code in function: <unavailable> offset -65535
+Intermediate File: string (IF_STRING) in snapshot worklib.test_poker_player:sv (SSS)
+	Decompile: /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+Simulator Snap Shot: dynlib (SSS_DYNLIB) in snapshot worklib.test_poker_player:sv (SSS)
+External Code in function: <unavailable> offset -64535
+External Code in function: <unavailable> offset -65500
+External Code in function: <unavailable> offset -65530
+User Code in function: <unavailable> offset 42584851
+csi-xmsim - CSI: investigation complete took 0.022 secs, send this file to Cadence Support

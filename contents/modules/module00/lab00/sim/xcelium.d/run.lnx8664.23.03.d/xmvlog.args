@@ -1,0 +1,30 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx8664.23.03.d
+-RUNMODE
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+-sv
+../src/poker_player.sv
+../testbench/test_smoke_test.sv
+-CDSLIB
+./xcelium.d/run.lnx8664.23.03.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.03.d/hdlrun.var
+-I_INCDIR
+/CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-no_analogsolver
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./xcelium.d/run.lnx8664.23.03.d/xllibs
+-ALLOWUNBOUND
+-ENABLEOIGW

@@ -1,0 +1,30 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-INPUT
+"@source /CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
+-uvmhome
+/CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d
+-sv_lib
+/CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+-MESSAGES
+-RUN
+-SV_LIB
+/CMC/tools/cadence/XCELIUMMAIN23.03.004_lnx86/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
++EMGRLOG
+xrun.log
+-XLSTIME
+1754567220
+-XLKEEP
+-XLMODE
+./xcelium.d/run.lnx8664.23.03.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.23.03.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.03.d/hdl.var
+-XLNAME
+xrun
+-XLVERSION
+"TOOL:	xrun(64)	23.03-s004"

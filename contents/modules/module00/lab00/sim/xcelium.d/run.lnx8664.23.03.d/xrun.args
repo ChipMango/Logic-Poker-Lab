@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-64bit
+-sv
+-uvm
+-debug
+-timescale
+1ns/1ps
+-log
+xrun.log
+-f
+files.f

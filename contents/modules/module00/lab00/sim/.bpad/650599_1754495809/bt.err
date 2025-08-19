@@ -1,0 +1,10 @@
+/CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools.lnx86/inca/bin/64bit/xmsim
+Obtained 8 stack frames.
+/CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(_Z13use_backtracev+0x9d) [0x7f6446a3a1a3]
+/CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(cbpad_generate_dump_on_demand+0x66) [0x7f6446a3a630]
+xmsim() [0x1c7a7c6]
+xmsim(serror+0x1cd) [0x1c7cadd]
+xmsim() [0xd33a94]
+xmsim() [0xd343dd]
+/lib64/libpthread.so.0(+0x12cf0) [0x7f64473d4cf0]
+[0x62b454c]
